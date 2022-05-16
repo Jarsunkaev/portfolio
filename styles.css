@@ -82,10 +82,9 @@ h3 { font-size: var(--fs-h3);}
 
 .typing-demo {
     width: 22ch;
-    animation: typing 1s steps(50), blink .5s step-end infinite alternate;
+    animation: typing 1s steps(50), step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid;
   }
   
   @keyframes typing {
@@ -139,9 +138,24 @@ h3 { font-size: var(--fs-h3);}
     text-shadow: 3px 1px sienna;
 }
 
-.nav-link:hover {
-    border-bottom: 3px var(--clr-dark) solid;
-    
+.nav-link {
+    display: inline-block;
+    color: var(--clr-dark);
+    text-decoration: none;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--clr-dark);
+    transition: width .3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    transition: width .3s;
 }
 
 /* Intro Section */
@@ -179,6 +193,12 @@ h3 { font-size: var(--fs-h3);}
     display: block;
     font-weight: var(--fw-medium);
     font-size: 1.5em;
+    width: 15ch;
+    animation: typing 1s steps(15),blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+
 }
 
 .section__subtitle {
@@ -255,6 +275,7 @@ h3 { font-size: var(--fs-h3);}
 
 .about-me__body {
     font-family: var(--ff-secondary);
+    font-size: var(--fs-body);
 }
 
 .about__img {
