@@ -78,29 +78,18 @@ h3 { font-size: var(--fs-h3);}
     font-size: var(--fs-h3);
 }
 
+/* Animations */
 
 
-.typing-demo {
-    width: 22ch;
-    animation: typing 1s steps(50), step-end infinite alternate;
-    white-space: nowrap;
-    overflow: hidden;
-    padding-right: 1em;
-  }
-  
   @keyframes typing {
-    from {
-      width: 0
-    }
+    from { width: 0 }
+    to { width: 100% }
   }
-      
+
   @keyframes blink {
-    50% {
-      border-color: transparent
-    }
+    from { border-color: transparent }
+    to { border-color: black; }
   }
-
-
 
 /* Navbar */
 
@@ -177,6 +166,7 @@ h3 { font-size: var(--fs-h3);}
 .section__subtitle--intro {
     display: inline-block;
     padding-bottom: 2em;
+    margin-right: 1em;
 }
 
 .section__title {
@@ -194,12 +184,13 @@ h3 { font-size: var(--fs-h3);}
     display: block;
     font-weight: var(--fw-medium);
     font-size: 1.5em;
-    width: 15ch;
-    animation: typing 1s steps(15),blink .5s step-end infinite alternate;
-    white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid;
-
+    border-right: 3px solid black;
+    white-space: nowrap;
+    width: 0;
+    animation: 
+      typing 1s steps(16, end) forwards,
+      blink .5s infinite alternate;
 }
 
 .section__subtitle {
@@ -212,6 +203,8 @@ h3 { font-size: var(--fs-h3);}
     padding: 0.25em 0.15em;
     font-family: var(--ff-tertiary);
     margin-bottom: 1em;
+    
+
 }
 
 .section__subtitle--about {
@@ -228,7 +221,7 @@ h3 { font-size: var(--fs-h3);}
 
 
 
-@media (min-width: 600px) {
+@media (min-width: 672px) {
     .intro {
         display: grid;
         width: min-content;
@@ -261,7 +254,7 @@ h3 { font-size: var(--fs-h3);}
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 672px) {
     .section__title--intro {
         padding-left: 0;
     }
@@ -457,7 +450,8 @@ h3 { font-size: var(--fs-h3);}
     background: var(--clr-dark);
     color:var(--clr-accent);
     text-align: center;
-    padding: .1em 0;
+    padding: .1em;
+    width: 100%;
 }
 
 .footer a  {
@@ -478,6 +472,7 @@ h3 { font-size: var(--fs-h3);}
 .footer__link:hover {
     text-decoration: underline;
 }
+
 
 .copyright {
     color: #6c757d;
